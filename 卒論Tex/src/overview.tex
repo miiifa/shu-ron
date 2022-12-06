@@ -1,0 +1,585 @@
+\chapter{スライディングブロックパズルの概要}
+\label{chp:second}
+
+\section{スライディングブロックパズル}
+\label{sec:eqn}
+スライディングブロックパズルとは，入れ物の中に収められた駒を空所を利用してスライドし，
+全ての駒を目的の位置に移動させるパズルのことである．本章では先ほど説明した15パズルを含め，様々なスライディングブロックパズルを紹介する．\\
+
+\noindent {\bf 15パズル}
+
+前述した通り，15パズル（図\ref{fig:15pzl}）とは，\(4 \times 4\)のボード上に\(4 \times 4 - 1\)すなわち15枚の同じ大きさの駒があり，1駒分の空きを利用して駒をスライドし，駒を目的の配置にするものである．
+より一般的には， \(n \times n\)のボード上に\(n^2-1\)枚の駒を同様にスライドしていくパズルを\(n^2-1\)パズルと呼ぶ．
+実際の15パズルの駒の上面にはそれぞれ1〜15の数字が重複なく印字（刻印）されており，駒を持ち上げることなく所定の位置に移動させることが目的のパズルである．印字（刻印）されるのは数字だけでなく，
+盤面全体のイラストや紋様を完成させるパズルも存在している．私が幼かった頃は海外旅行でよくJALのおもちゃとして飛行機のイラストのパズルをもらったものである．
+また，このパズルには絶対に揃えることのできない配置が存在するが，詳しくは次節のパリティ判定にて後述する．
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5cm]{./fig/15pzl.png}
+
+	\caption{15パズル}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+	\label{fig:15pzl}
+\end{figure}
+
+\noindent {\bf 箱入り娘}
+
+箱入り娘（図\ref{fig:hako}）は，その名の通り\(4 \times 5\)のボードに入った形の違う駒の中で「娘」と印字（刻印）されている\(2 \times 2\)の駒だけを
+容器の中央下に存在する穴から外に出す一人遊び用のパズルである．
+駒には「娘」の他に\(2 \times 1\)の駒である「父親」「母親」「兄弟」「祖父」「祖母」などの続柄や\(1 \times 1\)の駒があり，それらを2マス分の空所を利用し，スライドさせることで「娘」の駒を徐々に移動させていく．
+初期配置も様々存在し，その配置によって難易度や最小手数が異なってくる．また，絵柄には前述した例だけでなく「チェス」や「トランプ」，「将棋の駒」などの種類もあり，国外だと，フランスでは「赤ロバ」，中国では「華容道」と名前や種類は違えど
+世界中で遊ばれている．ちなみに起源はアメリカの「Dad'Pazzler」とされている．
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5cm]{./fig/hako.png}
+
+	\caption{箱入り娘}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+	\label{fig:hako}
+\end{figure}
+\noindent {\bf ラッシュアワー}
+
+ラッシュアワー（図\ref{fig:rush}）は，芦ヶ原伸之というパズル作家が考案したパズルの商品名である．
+\(6 \times 6\)の駐車場に見立てたボードの上に，\(1 \times 2\)もしくは\(1 \times 3\)の自動車に見立てた長方形状の駒を並べ，対象の駒をスライドさせてボードから出す事が目的のパズルである．
+ボードの外に出すという点で箱入り娘と似ているが，15パズルや箱入り娘と違って，長い辺に並行な方向にしか移動することができない．日本ではあまり認知されていないが，世界中で300万個以上販売されており，携帯用の電子ゲームであったり，webサイトのミニゲームになっていたりと
+世界中で遊ばれている．
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5cm]{./fig/rush.png}
+	\caption{ラッシュアワー}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+	\label{fig:rush}
+\end{figure}
+
+% 数式のインラインモードは \(x^2 + y^2 \leq 1\) のように表示させることができる．
+% インラインモードで「\verb+$...$+」を使うやり方は，
+% 近年の LaTeX ではあまり推奨されていないが，その利用は妨げない．
+
+% ディスプレイ数式モードを利用する際に推奨するのは equation 環境である．
+%  \begin{equation}
+% 	\mathbf{A}_p = \frac{\mathbf{A}\cdot\mathbf{B}}{|\mathbf{B}|^2}\mathbf{B} .
+% 	\label{eq:samp1}
+% \end{equation}%
+% 数式の参照は「\verb+\ref+」ではなく「\verb+\eqref+」を用いる．
+% 上記の数式を参照すると「式\eqref{eq:samp1}」となる．
+% このように，\verb+\eqref+ を用いた場合は数式中と同じ様式の括弧がつく．
+
+% また，複数行にわたる数式を表示したい場合は align 環境を用いることを推奨する．
+% 以下の式\eqref{eq:samp2}にその例を示す．
+
+% \begin{align}
+% 	& \begin{bmatrix}
+% 	a_{11} & a_{12} & \cdots & a_{1n} \\
+% 	a_{21} & a_{22} & \cdots & a_{2n} \\
+% 	\vdots & \vdots & \ddots & \vdots \\
+% 	a_{m1} & a_{m2} & \cdots & a_{mn} \\
+% 	\end{bmatrix}
+% 	\otimes
+% 	\begin{bmatrix}
+% 	b_{11} & b_{12} & \cdots & b_{1n} \\
+% 	b_{21} & b_{22} & \cdots & b_{2n} \\
+% 	\vdots & \vdots & \ddots & \vdots \\
+% 	b_{m1} & b_{m2} & \cdots & b_{mn} \\
+% 	\end{bmatrix} \notag \\
+% 	& \qquad \qquad = \sum_{i}^{m}\sum_{j}^{n}a_{ij}b_{ij} .
+% 	\label{eq:samp2}
+% \end{align}
+
+% 数式で複数行を用いる方法として、古い \LaTeX に関する資料では eqnarray 環境の
+% 解説を行っている場合があるが、最近の \LaTeX では幾つかのパッケージ
+% (特に\AmS 関連)と同時に利用すると問題が発生することがあるため、利用は推奨しない．
+% 複数行を用いる方法としては他にも gather, multline, split など多くの環境があるが、
+% equnarray 以外のものであれば問題はない。
+
+% 具体的な数式の記述方法については書籍や Web 上の情報等を参照のこと。
+
+\section{パリティ判定}
+\(n^2-1\)パズルには，完成が不可能な初期配置が存在し，完成が可能か不可能かはパリティ判定（パリティチェック）と呼ばれる方法で判定できることが知られている\cite{Hs},\cite{WW}．
+以降，簡単のため8パズルを用いて説明する．
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4.7cm]{./fig/flow.png}
+		\caption{対応順}
+		\label{fig:flow}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=3cm]{./fig/8puzzle.png}
+		\caption{完成した状態}
+		\label{fig:after}
+	\end{minipage}
+	
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+% (8パズルを用いて偶奇性を示す宮順列木順列、n*nでも同様のことがいえる、命題が成立、バブルソートの回数、となる場所を探す)
+パリティとは偶奇性のことを指し，このパズルにおける偶奇性とは，図\ref{fig:flow}のような順番に数列を対応させた時に（空所は無視），その数列が偶順列か奇順列のどちらかということである．
+この判別は，数列の数字の順番が逆になっている個数（転倒数）を数え，その個数の偶奇によってなされ，
+結論から述べると，初期状態と完成した状態の転倒数の偶奇が一致する場合に完成可能で，反対に，不一致の場合に完成不可能となる．この事実は，パリティ保存性と呼ばれる性質に基づいている．以下では，パリティ保存性について説明する．
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\hsize}
+		\centering
+		\includegraphics[width=3cm]{./fig/8puzzle1.png}
+		\caption{初期状態\(1\)}
+		\label{fig:before1}
+	\end{minipage}
+	\begin{minipage}{0.3\hsize}
+		\centering
+		\includegraphics[width=3cm]{./fig/8puzzle2.png}
+		\caption{初期状態\(2\)}
+		\label{fig:before2}
+	\end{minipage}
+	
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+パリティ保存性とは，偶順列は偶順列のまま，奇順列は奇順列のまま，駒を何回動かしていても変化せず，偶奇が入れ替わることはないというものである．
+例えば，図\ref{fig:flow}の順番に対応する図\ref{fig:before1}の数列を\(t=\{2,1,3,6,4,7,8,5\}\)とする．
+4を右に移動させることと，6を左に移動させることは，どちらも\(t\)には影響しないため互換回数は0回となる．
+1を下に移動させた場合の数列を\(t'\)，8を上に移動させた場合の数列を\(t''\)とすると，\(t'=\{2,3,6,1,4,7,8,5\}\)，\(t''=\{2,1,3,6,8,4,7,5\}\)となる．
+ここで，\(t\)から\(t'\)と\(t\)から\(t''\)への置換に必要な互換回数はどちらも2回となる．したがって，8パズルにおける偶奇性は保存されていることがわかる．
+さらに，これは図\ref{fig:flow}の性質上，上下の移動は偶数個の駒を飛び越すことと同値であるため，\(n^2-1\)パズルに対しても同様に考えることができ，パリティ保存性はこのパズルにおいて常に成り立つ．
+
+次に，数列の転倒数の偶奇について考える．
+転倒数とは，数列の数字の順番が逆になっている個数のことである．
+また，先ほどは空所を無視して考えたが，空所を含めていたとしても初期状態と完成した状態の両方が同じだけ偶奇の反転が行われるため，判別には影響しない．
+
+したがって，\(n^2-1\)パズルにおいて，以下の命題が成り立つ．
+	\begin{screen}
+		「初期状態から完成した状態への置換における互換回数のパリティ（偶奇）が空所の最短距離のパリティ（偶奇）と等しい．」
+		と「\(n^2-1\)パズルが完成できる．」は同値である．
+
+		（空所の最短距離とは，駒の辺長を1とした時，初期状態での空所と完成した状態での空所のマンハッタン距離のことである．）
+		\label{fig:thm1}
+	\end{screen}
+
+このことから，\(n^2-1\)パズルを生成する際，\(n^2\)パズル（空所のない状態）から取り除く駒は，上記が成り立つならばどの駒を取り除いてもよいことが分かる．
+この独自の発想は，4章の実験でパズルの空所を決定する際に有効に働いた．
+例を用いて以下で確認する．
+
+空所を9とした時，図\ref{fig:after}の完成した状態の数列を新たに\(s=\{1,2,3,4,5,6,7,8,9\}\)とし，
+同様に，図\ref{fig:before1}を\(t=\{2,1,3,4,9,6,7,8,5\}\)，図\ref{fig:before2}を\(u=\{1,2,3,4,5,6,8,7,9\}\)とする．
+
+例えば，図\ref{fig:before1}の場合，
+
+\begin{itemize}
+ \item \(s\)を\(t\)にする置換において，1と2，5と9の互換でよいので，互換回数は2回でパリティは偶．
+ \item 空所のマンハッタン距離は2なのでパリティは偶．
+\end{itemize}
+したがって，完成可能である．
+
+また，図\ref{fig:before2}の場合，
+\begin{itemize}
+ \item \(s\)を\(u\)にする置換において，7と8の互換でよいので，互換回数は1回でパリティは奇．
+ \item 空所のマンハッタン距離は0なのでパリティは偶．
+\end{itemize}
+したがって，完成不可能である．
+
+ところで，転倒数はバブルソートの交換回数と同値であるため，プログラムでは，得られた数列をバブルソートして得られた交換回数を参照することとする．
+
+\section{\(n^2-1パズルの完成手数\)}
+本節では，\(n^2-1\)パズルの完成手数を先行研究\cite{Ian}を踏まえながら，それを改善したアルゴリズム「\(Uegen's Greedy Algorithm\)」について説明する．
+現在，コンピュータの計算によって8パズル，15パズルの最短手数の最大値はそれぞれ31手，80手と知られており，それより大きいサイズの\(n^2-1\)パズル\(（n\geq3）\)の最短手数の計算はNP困難である\cite{Daniel}．
+論文\cite{Ian}では，最悪でも\(5n^3\)の手数でパズルを完成できる多項式時間アルゴリズムが提唱されている．以下では，そのアルゴリズムについて説明する．
+
+\subsection{先行研究のアルゴリズム}
+簡単のため，\(n \times n-1\)パズルを$puzzle(n)$とし，目的の位置に駒を配置することを「揃える」とする．
+大きな流れとして，一番上の行と一番左の列を先に揃え，$puzzle(n)$を$puzzle(n-1)$に帰着させることを$puzzle(3)$となるまで続ける．
+$puzzle(3)$まで帰着させた後，全探索にて最短手を計算しパズルを完成させる．
+より詳しく説明するため，$puzzle(n)$の$i$行\(j\)列目のグリッドの位置を\(location(i,j)\)，完成時に\(i\)行\(j\)列目にある駒を\(tiles(i,j)\)と定義する．
+図\ref{fig:chart}の二行目の貪欲法は，単純に$tiles(1,k)$$(1\leq k\leq n)$を揃えた後，$tiles(k,1)$$(2\leq k\leq n)$を揃えるだけのものである．
+\begin{figure}[H]
+	\centering
+	\begin{screen}
+		{\bf 手順} $puzzle(n)$
+		\begin{enumerate}
+			\item \(n=3\)のとき，全探索によって解く．
+			\item \(n>3\)のとき，
+			\begin{enumerate}
+				\item 一番上の行と一番左の列を先に揃える．
+				\item $puzzle(n-1)$を呼び出し，残りの行と列を解く．
+			\end{enumerate}
+			
+		\end{enumerate}
+	\end{screen}
+	\caption{\(n \times n パズルの解法手順\)}
+	\label{fig:chart}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{./fig/naname.png}
+	\caption{グレーの駒の斜め移動例（6手）}
+	\label{fig:naname}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7.5cm]{./fig/tate.png}
+	\caption{グレーの駒の縦移動例（5手）}
+	\label{fig:tate}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+
+まず，$tiles(1,k)$$(1\leq k \leq n)$の手順を説明する．一般性を持たせるために，$tiles(1,k)$$(k\leq n/2)$を揃える時は，$tiles(1,k)$は必ず$location(i,j)$$(i>1,j>n/2)$に存在し，
+同様に逆もまたしかりで，$tiles(1,k)$$(k > n/2)$を揃える時は，$tiles(1,k)$は必ず$location(i,j)$$(i>1,j \leq n/2)$に存在するものとする．
+$tiles(1,k)$を揃えるのに，$location(2,k-1)$から$tiles(1,k)$の右側に移動させる．その後，$tiles(1,k)$を$location(1,k)$に移動させる．
+初めに図\ref{fig:naname}の移動方法を使い，$location(1,k)$と同じ行，もしくは列になるように$tiles(1,k)$を対角線方向に移動させる．
+その後，図\ref{fig:tate}の移動方法を使い，$location(1,k)$に$tiles(1,k)$を垂直・水平方向に移動させる．
+また，これらの移動の際には一度完成した駒を崩さないように，状況に応じて空白のずらす位置を変えて移動させるものとする．
+
+$puzzle(n)$に対してこのアルゴリズムは，最悪でも$5n^3+O(n^2)$手で完成することができる．
+この手数について以下で説明する．
+まず空所が$location(1,k)$$(2\leq k \leq n/2)$にあり，$tiles(1,j)$$(1\leq j<k)$は既に揃えられている時の$tiles(1,k)$の揃える手数について考える．
+最悪の場合として，$tiles(1,k)$が$location(n,n)$にある時，空所は$n$行目から1行目まで$n-1$回，$n$列目からk列目まで$n-k$回，合計で$2n-k-1$回移動する．
+次に駒の移動について考える．$tiles(1,k)$は$location(n,n-1)$にあり，図\ref{fig:naname}の対角線移動を$n-k-1$回行い，$location(k+1,k)$に移動させる．
+対角線移動は6手なので，$6(n-k-1)$手数かかる．その後，$k$回の垂直移動（5手/回）を行うため，さらに$5k$手数かかる．したがって，$tiles(1,k)$$(1\leq k \leq n/2)$を1つ揃えるのにかかる手数は，$8n-2k-7$となる．
+よって，$tiles(1,k)$$(1\leq k \leq n/2)$を揃えるために必要な手数は，
+\begin{eqnarray}
+	\sum_{k=1}^{n/2}(8n-2k-7)=15n^2/4-4n
+	\label{fig:eq0}
+\end{eqnarray}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7.5cm]{./fig/fin1.png}
+	\caption{行（列）の最後の移動（5手）}
+	\label{fig:fin1}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+また，例外的に$tiles(1,n-1)$と$tiles(1,n)$はそれぞれ$location(1,n)$と$location(2,n)$に移動させ，図\ref{fig:fin1}の移動方法（5手/回）を用いて揃える．
+残り半分$(n/2 < k \leq n)$も手数\ref{fig:eq0}と等しい手数が必要なため，初めの一行を揃えるために必要な手数は，
+\begin{eqnarray}
+	2(15n^2/4-4n)+5=15n^2/2-8n+5
+	\label{fig:eq1}
+\end{eqnarray}
+そして，$tiles(k,1)$$(2\leq k \leq n)$を揃える手数も，$k=1$の場合を除いた手数\ref{fig:eq1}と等しいため，$puzzle(n)$の始めの行と列を揃えるために必要な手数は，
+\begin{eqnarray}
+	2(15n^2/2-8n+5)-(8n-9)=15n^2-24n+19
+\end{eqnarray}
+$puzzle(n)$を揃えるために必要な手数を$T(n)$とした時，
+$T(n)$は図\ref{fig:chart}より，$T(n)=T(n-1)+15n^2-24n+19$となる．$puzzle(3)$の最短手数は31以内と知られているため，$T(3)=34$として，
+$T(n)=5n^3-9n^2/2+19n/2-89$となる．
+
+\subsection{本研究のアルゴリズム}
+\label{sec:alg}
+本研究のアルゴリズムは，先行研究のアルゴリズムを踏まえて，改善したアルゴリズムである．
+大きく3つの改善した点があるため，以下にそれを説明する．また，引き続き前述で定義した用語を用いる．
+\subsubsection{距離コストを用いた行（列）の選択}
+\label{sec:greed}
+例えば，$puzzle(n)$を揃える際の初動として，前述では一行目を揃えた後，一列目を揃え，$puzzle(n-1)$に帰着した．
+しかしそれでは，盤面の配置状態が考慮されていないため，本研究では，$puzzle(n)$の4辺のうち，そこに揃えるために必要な手数の一番少ない行（列）を選択するようにした．
+同様にして，これを$puzzle(3)$になるまで繰り返せば，全体の手数がさらに少なくできると考えたからである．
+$puzzle(n)$の4辺とは，次の4つの行（列）のことである．
+\begin{itemize}
+	\item $location(1,n-k+1)$$(1\leq k \leq n)$
+	\item $location(k,1)$$(1\leq k \leq n)$
+	\item $location(n,k)$$(1\leq k \leq n)$
+	\item $location(n-k+1,n)$$(1\leq k \leq n)$
+\end{itemize}
+以上の4つのうちの1つを選択し，$k$を1から$n$の順に駒を揃えていく．
+選択方法は，それぞれについて，下記の式を用いて計算した結果（これを距離コストとする）を参照し，そのうち最も小さい方を選ぶとする．
+以下に，その距離コストの計算方法を説明する．
+% ここで，今ある空所の位置をlocation(a,b)とする．
+
+一行（列）を揃える際に，まず空所を揃える駒の近くに配置する手順があり，
+この手数は空所と揃える駒とのマンハッタン距離でおおよそ計算することができる．これを$C_1$とする．
+次に，駒を所定の位置に移動させる手順の手数は，$(対角線移動の回数) \times 6 + (垂直・並行移動の回数) \times 5$でおおよそ計算することができる．これを$C_2$とする．
+$k$番目に揃えるべき駒のある行を$ty_k$，列を$tx_k$，$k$番目に揃える場所の行を$ly_k$，列を$lx_k$，そして今ある空所の位置を$location(a,b)$とする．
+したがって，距離コストC（$C_1+C_2$）は，
+\begin{align*}
+	& C_1=|ty_1-a|+|tx_1-b|+\sum_{k=2}^{n}(|ty_k-ly_{k-1}|+|tx_k-lx_{k-1}|) \\
+	& C_2=\sum_{k=1}^{n}(min(|ty_k-ly_k|,|tx_k-lx_k|) \times 6+||ty_k-ly_k|-|tx_k-lx_k|| \times 5)
+	% C=\sum_{k=1}^{n} (min(|ty_k-ly_k|,|tx_k-lx_k|)\times5+||ty_k-ly_k|-|tx_k-lx_k||\times6)
+	\label{fig:cost}
+\end{align*}
+
+このようにして，$n \times n-1$パズルを外側から一行（列）ずつ揃えていき，これを8パズルに帰着させるまで続け，最後に全探索にて最短手を計算しパズルを完成させる．
+$puzzle(n)$において，完成までに行（列）を選ぶ回数が最後の$puzzle(3)$の分を除いた$2n-6$回より$O(n)$，
+1本分のコストを計算するのにかかる計算量が$O(n)$より，このアルゴリズムの計算量は$O(n^2)$となる．また，$O(n^2)$は$puzzle(n)$を解く計算量の次数より少ないため無視できる．
+
+また，このアルゴリズムでは，左上から順に揃っていく先行研究と違い，上下左右からランダムに揃っていくように見えるため，
+アニメーションを見ている側も単調な動きではないため飽き辛い．
+さらに，パリティチェックの関係（\ref{fig:thm1}節）で，完成時に右下が空所とならない場合にもこのアルゴリズムでは対応できるため，
+パズルを生成することが目的の一つでもある本研究において，非常に扱いやすいものとなっている．
+\subsubsection{一般性をさらに持たせた移動手順の改善}
+\label{sec:ippan}
+先行研究では，移動を図\ref{fig:naname}や図\ref{fig:tate}のように一連の動作としてまとめて考えていた．
+しかし，その動作中，近くに動かしてはいけない駒（揃え終わった駒）があった際に，間違えて動かさないように例外的な処理が必要となる可能性があり，一般性が損なわれてしまう．
+そこで，一手一手を独立して考えることにより，これを改善した．
+図\ref{fig:r1}～図\ref{fig:b6}は，盤面の状態（動かしたい駒と空所との位置関係）とその時に行う操作を6つのパターンで分けたものである．
+また，前提として，以下を考慮する．
+\begin{itemize}
+	\item $空白部分に隣接する駒だけでなく、縦または横に連続した複数の駒を一斉にスライドさせても良いものとする．（手数は動かした駒の分が加算されるが，操作は一回で行われる．）$
+	\item $下図では，図の中央の駒（○マーク）を上方向に移動させる状況とする．$
+	\item $赤い領域は空所のある領域を表し，黒い領域は一回の操作後に空所となる位置の領域を表す．$
+	\item $赤・黒の領域は図に描かれていないマスにも延長されているものとする．$
+	\item $赤の領域に番号が記載されている場合，操作後に同じ番号の黒の領域に空所を移動させるものとする．$
+	\item $優先度とは，操作が二通りある場合の優先度のことで，優先度1は駒を目的の場所に移動させるための最善手である．
+	なので，基本は優先度1の操作をするが，もしその操作によって揃え終わった駒を動かしてしまうことになる場合は，優先度2の操作をする．$
+	\item $状態6の図\ref{fig:b6}については，黒の領域L,Rの優先度は同じであるため，操作によって揃え終わった駒を動かさなければ基本はどちらでも良いが，中央の駒の左前の駒（●）が揃え終わった駒の場合は黒の領域Lに空所を移動させることはできない．
+	逆も同様に，中央の駒の右前の駒（▲）が揃え終わった駒の場合は黒の領域Rに空所を移動させることはできない．$
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/1_r.png}
+		\caption{状態1（操作前）}
+		\label{fig:r1}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/1_b.png}
+		\caption{状態1（操作後）}
+		\label{fig:b1}
+	\end{minipage}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/2_r.png}
+		\caption{状態2（操作前）}
+		\label{fig:r2}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/2_1_b.png}
+		\caption{状態2（操作後）}
+		\label{fig:b2_1}
+	\end{minipage}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/3_r.png}
+		\caption{状態3（操作前）}
+		\label{fig:r3}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/3_1_b.png}
+		\caption{状態3（操作後）優先度1}
+		\label{fig:b3_1}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/3_2_b.png}
+		\caption{状態3（操作後）優先度2}
+		\label{fig:b3_2}
+	\end{minipage}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/4_r.png}
+		\caption{状態4（操作前）}
+		\label{fig:r4}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/4_1_b.png}
+		\caption{状態4（操作後）優先度1}
+		\label{fig:b4_1}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/4_2_b.png}
+		\caption{状態4（操作後）優先度2}
+		\label{fig:b4_2}
+	\end{minipage}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/5_r.png}
+		\caption{状態5（操作前）}
+		\label{fig:r5}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/5_1_b.png}
+		\caption{状態5（操作後）優先度1}
+		\label{fig:b5_1}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/5_2_b.png}
+		\caption{状態5（操作後）優先度2}
+		\label{fig:b5_2}
+	\end{minipage}
+	% \url{http://www.this.is.sample.url/} % Web上のデータの場合、参照先URLを明記
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/6_r.png}
+		\caption{状態6（操作前）}
+		\label{fig:r6}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/6_b.png}
+		\caption{状態6（操作後）}
+		\label{fig:b6}
+	\end{minipage}
+
+\end{figure}
+
+ここで，わかりやすくするため具体例を用いて説明する．
+数字の書かれている駒は揃え終わった駒とし，何も書かれていない駒は自由に動かせるものとする．
+図$\ref{fig:mv}$は，puzzle(30)において，64と書かれた駒を上方向に移動させたいという状況である．
+図$\ref{fig:mv5}$は，何回かの操作が終わり，上方向に移動した時の状態である．
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/mv.png}
+		\caption{パズルの具体例}
+		\label{fig:mv}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=4cm]{./fig/mv5.png}
+		\caption{移動後の状態}
+		\label{fig:mv5}
+	\end{minipage}
+\end{figure}
+下図で，図$\ref{fig:mv}$から図$\ref{fig:mv5}$までの過程を示す．
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.2\hsize}
+		\centering
+		\includegraphics[width=2cm]{./fig/mv1.png}
+		\caption{1手目}
+		\label{fig:mv1}
+	\end{minipage}
+	\begin{minipage}[t]{0.2\hsize}
+		\centering
+		\includegraphics[width=2cm]{./fig/mv2.png}
+		\caption{2手目}
+		\label{fig:mv2}
+	\end{minipage}
+	\begin{minipage}[t]{0.2\hsize}
+		\centering
+		\includegraphics[width=2cm]{./fig/mv3.png}
+		\caption{3手目}
+		\label{fig:mv3}
+	\end{minipage}
+	\begin{minipage}[t]{0.2\hsize}
+		\centering
+		\includegraphics[width=2cm]{./fig/mv4.png}
+		\caption{4手目}
+		\label{fig:mv4}
+	\end{minipage}
+\end{figure}
+% まずは一手目（図$\ref{fig:mv1}$）
+一手目（図$\ref{fig:mv1}$）は状態6（図$\ref{fig:r6}$）なので，黒の領域$L$か$R$のどちらかに移動する（図$\ref{fig:b6}$）が，$L$に空所を移動させると揃え終わった駒を動かしてしまうため（または，●の位置にある駒は揃え終わった駒であるため），
+今回の場合，黒の領域$R$に空所を移動させる．
+二手目（図$\ref{fig:mv2}$）は状態5（図$\ref{fig:r5}$）であり，空所は赤の領域$2$に存在する．揃え終わった駒を動かすことはないため，優先度1の操作を行い黒の領域$2$に空所を移動させる（図$\ref{fig:b5_1}$）．
+三手目（図$\ref{fig:mv3}$）は状態2（図$\ref{fig:r2}$）であり，空所は赤の領域$2$に存在する．図$\ref{fig:b2_1}$となるように操作を行う．
+四手目（図$\ref{fig:mv4}$）は状態1（図$\ref{fig:r1}$）であり，図$\ref{fig:b1}$となるように操作を行い，図$\ref{fig:mv5}$の状態が完成する．
+
+座標変換を行うことで，上方向以外も同じ動きとして考えることができる．これらにより，プログラムをさらに単純化することができた．
+
+\subsubsection{例外的な配置に対する移動手順}
+先行研究では，図\ref{fig:fin1}のような例外の処理をしていたが，実際はこのような盤面にならない場合が存在する．
+以下の図\ref{fig:er1},\ref{fig:er2}がその例である．
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=3cm]{./fig/er1.png}
+		\caption{例外1}
+		\label{fig:er1}
+	\end{minipage}
+	\begin{minipage}[t]{0.3\hsize}
+		\centering
+		\includegraphics[width=3cm]{./fig/er2.png}
+		\caption{例外2}
+		\label{fig:er2}
+	\end{minipage}
+\end{figure}
+この時，$tiles(1,n-1)$を動かさずに$tiles(1,n)$を$location(2,n)$に移動させることはできない．
+したがって，このような場合は，$tiles(1,n-1)$を動かしても良いものとし，$tiles(1,n)$を一度$location(3,n-1)$に移動させる．
+あとは，通常通りに$tiles(1,n-1)$と$tiles(1,n)$をそれぞれ$location(1,n)$と$location(2,n)$に移動させることで解決することができる．
+% \LaTeX では、縦方向や横方向に空白を空けたいとき (\verb+\vspace+, \verb+\hspace+) や、
+% 画像の縦幅や横幅を指定したい場合など、多くの場面で寸法を指定することがある。
+% \LaTeX の寸法単位は mm (ミリメートル) や cm (センチメートル) など多くの種類が利用でき、
+% 小数点以下も記述できるためかなり柔軟な指定ができる。例えば、表のキャプションと
+% 本体の間を少し空けたいときは
+% \begin{verbatim}
+% \begin{table}[H]
+%   \caption{ラベルに指定するキーワードのプリフィクス一覧}
+%   \label{tbl:pre_list}
+%   \centering
+%   \vspace{0.5cm}
+%   \begin{tabular}{|l|l|r|} \hline
+% \end{verbatim}
+% のように、表本体の直前に \verb+\vspace+ を入れればよい。
+
+% \LaTeX の寸法指定で留意すべきこととして、単位の「true つき」と「true なし」の使い分けがある。
+% 例えば、先述の「\verb+\vspace{0.5cm}+」に対し、true つきの場合は
+% 「\verb+\vspace{0.5truecm}+」ということになる。
+
+% true がついていない場合、\verb+\documentclass+ の指定時でのフォントサイズを変更すると、
+% そのフォントサイズに伴って(空白幅や画像幅などの)実際の寸法も変化する。
+% フォントサイズを変更した際に連動してほしい寸法については、この「true なし」を用いるとよい。
+% 一方、「true つき」の場合はフォントサイズの変更には連動せず常に固定の値となる。
+% センタリングした画像幅などはフォントサイズと連動しない方が都合がよいことも多く、
+% そういった場合は「true つき」の寸法を指定するとよい。
+
+% \section{参考文献}
+% \label{sec:bib}
+
+% 参考文献リストの作成は、\BibTeX を用いることを推奨する。
+% 文献の参照は、リスト上で文献に付けたキーワードをciteコマンドによって指定することで記述する。
+% 例えば、
+% 「阿部ら\cite{abeJ}によると、
+% 某手法\cite{nowrouzezahrai}には重大な欠点が存在することが指摘されている。」
+% という利用方法となる。
+
+% 文献を1つも参照していない状態でPDFを生成するバッチファイルを実行するとエラーとなるので注意すること。
+% 生成したPDFファイル中で参照がうまくできていない場合には参照番号ではなく
+% 「\verb+?+」記号が表示される。
+
+% \BibTeX の記述方法は、どのような種類の文献かによって異なる。以下に具体的な例を列挙する。
+% \begin{itemize}
+%  \item 論文誌掲載の学術論文\cite{Daniel}
+%  \item 研究会の研究報告\cite{Ian}
+%  \item 博士論文\cite{takeuchi}
+%  \item 修士論文\cite{abeM}
+%  \item 学部卒業論文\cite{abeU}
+%  \item 書籍\cite{dragonball}
+%  \item URL\cite{effekseer}
+% \end{itemize}
+
+% 文献の属性の種類や、設定するべきステータスについてもWebを参照すること。
+% 論文データベースサイトでは \BibTeX の記述形式によるテキストを出力してくれるところもあるので、
+% 利用できると便利である。
+% リストの記述順は一切気にする必要がなく、
+% 参考文献に挙げないものが含まれていても問題無いので、関連しそうな文献は全てリスト化しておくとよい。
+
+% \BibTeX における著者名の列挙はカンマで並べるのではなく、
+% \begin{verbatim}
+%     author = "阿部 雅樹 and 渡辺 大地 and 三上 浩司",
+% \end{verbatim}
+% というように、各氏名の間に「and」を入れるという独特の形式を持つ。
+
+% また、\BibTeX では author や title 等での
+% アルファベット大文字小文字を自動的に変換する機能があり、
+% 例えばタイトル中の「3DCG における」といった文字列は「3dcg における」となる。
+% これを強制的に大文字小文字を指定したい場合は、
+% \begin{verbatim}
+%     title = "{3DCG}における何かしらの手法",
+% \end{verbatim}
+% のようにその部分だけ波括弧で囲うことで指定できる。
+
